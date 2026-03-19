@@ -2,6 +2,7 @@ import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import NextImage from "next/image";
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
     const project = projects.find(p => p.slug === params.slug);
@@ -50,11 +51,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     </div>
                 </div>
 
-                <div className="w-full h-auto bg-[#EAE8E3] rounded-3xl overflow-hidden shadow-2xl mt-16 flex items-center justify-center">
-                    <img
+                <div className="w-full h-auto min-h-[400px] bg-[#EAE8E3] rounded-3xl overflow-hidden shadow-2xl mt-16 flex items-center justify-center relative">
+                    <NextImage
                         src={`/images/${project.img}`}
                         alt={project.title}
-                        className="w-full h-auto object-contain pointer-events-none"
+                        fill
+                        className="object-contain pointer-events-none"
+                        priority
                     />
                 </div>
 
@@ -64,12 +67,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         <h3 className="text-3xl font-heading font-black mb-12 tracking-tighter uppercase text-[#1A1A1A]">Project Gallery</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full">
                             {project.gallery.map((galleryImg, i) => (
-                                <div key={i} className="flex items-center justify-center p-0 rounded-3xl overflow-hidden shadow-xl bg-[#DCD9D4] group">
-                                    <img
+                                <div key={i} className="flex items-center justify-center p-0 rounded-3xl overflow-hidden shadow-xl bg-[#DCD9D4] group relative aspect-video">
+                                    <NextImage
                                         src={`/images/${galleryImg}`}
                                         alt={`${project.title} screenshot ${i + 1}`}
-                                        className="w-full h-auto object-contain pointer-events-none transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
+                                        fill
+                                        className="object-contain pointer-events-none transition-transform duration-700 group-hover:scale-105"
                                     />
                                 </div>
                             ))}

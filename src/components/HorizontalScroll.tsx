@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import NextImage from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,11 +80,11 @@ export default function HorizontalScroll() {
                             <div className="w-full md:w-[60%] h-[40vh] md:h-full relative overflow-hidden rounded-2xl bg-[#DCD9D4] mt-16 md:mt-0 shadow-xl pointer-events-none">
                                 <div className="absolute inset-0 bg-[#EAE8E3]"></div>
 
-                                <img
+                                <NextImage
                                     src={`/images/${project.img}`}
                                     alt={`Randil Fernando - ${project.title} Portfolio`}
-                                    className="absolute top-0 left-[-15%] w-[130%] h-full object-cover pointer-events-none"
-                                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                    fill
+                                    className="object-cover pointer-events-none"
                                 />
                             </div>
 

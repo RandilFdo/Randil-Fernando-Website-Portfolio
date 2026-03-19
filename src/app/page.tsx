@@ -5,6 +5,7 @@ import Neurobloom from "@/components/Neurobloom";
 import Services from "@/components/Services";
 import BentoGrid from "@/components/BentoGrid";
 import DevOpsTerminal from "@/components/DevOpsTerminal";
+import BeyondTheScreen from "@/components/BeyondTheScreen";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
             <Services />   {/* Light */}
             <DevOpsTerminal /> {/* Dark */}
             <BentoGrid />  {/* Light */}
+            <BeyondTheScreen /> {/* Light */}
             <Footer />     {/* Dark */}
         </main>
     );

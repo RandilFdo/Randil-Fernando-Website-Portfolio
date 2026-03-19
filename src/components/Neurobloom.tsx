@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import NextImage from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,11 +58,11 @@ export default function Neurobloom() {
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
                     <div className="neuro-element md:col-span-8 bg-[#111] border border-[#222] rounded-3xl overflow-hidden relative group min-h-[400px]">
-                        <img
+                        <NextImage
                             src="/images/randilfernando_neurobloom.jpeg"
                             alt="Randil Fernando - Neurobloom Robot Portfolio"
-                            className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700"
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            fill
+                            className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10" />
                         <div className="absolute top-8 right-8 bg-[#EAE8E3] text-black font-sans font-bold py-2 px-6 rounded-full rotate-[-12deg] shadow-xl text-sm md:text-base hover-target z-20">
