@@ -77,7 +77,7 @@ export default function Hero() {
                         priority
                     />
                     {/* Subtle bottom fade for mobile */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-[#EAE8E3] via-[#EAE8E3]/80 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-[8%] bg-gradient-to-t from-[#EAE8E3] to-transparent pointer-events-none" />
                 </div>
 
                 {/* Description below image */}
@@ -119,7 +119,7 @@ export default function Hero() {
                         priority
                     />
                     {/* Subtle bottom fade */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-[#EAE8E3] via-[#EAE8E3]/80 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-[8%] bg-gradient-to-t from-[#EAE8E3] to-transparent pointer-events-none" />
                 </div>
 
                 {/* Content floating bottom-left — positioned to avoid image overlap */}

@@ -36,17 +36,20 @@ export default function HorizontalScroll() {
         sections.forEach((section) => {
             const img = section.querySelector("img");
             if (img) {
-                gsap.to(img, {
-                    xPercent: 30,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: section,
-                        containerAnimation: tl,
-                        start: "left right",
-                        end: "right left",
-                        scrub: true,
+                gsap.fromTo(img, 
+                    { xPercent: -10 },
+                    {
+                        xPercent: 10,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: section,
+                            containerAnimation: tl,
+                            start: "left right",
+                            end: "right left",
+                            scrub: true,
+                        }
                     }
-                });
+                );
             }
         });
 
@@ -80,14 +83,12 @@ export default function HorizontalScroll() {
                             <div className="w-full md:w-[60%] h-[40vh] md:h-full relative overflow-hidden rounded-2xl bg-[#DCD9D4] mt-16 md:mt-0 shadow-xl pointer-events-none">
                                 <div className="absolute inset-0 bg-[#EAE8E3]"></div>
 
-                                <div className="absolute top-0 left-[-15%] w-[130%] h-full">
-                                    <NextImage
-                                        src={`/images/${project.img}`}
-                                        alt={`Randil Fernando - ${project.title} Portfolio`}
-                                        fill
-                                        className="object-cover pointer-events-none"
-                                    />
-                                </div>
+                                <NextImage
+                                    src={`/images/${project.img}`}
+                                    alt={`Randil Fernando - ${project.title} Portfolio`}
+                                    fill
+                                    className="object-cover pointer-events-none scale-[1.2]"
+                                />
                             </div>
 
                             <div className="w-full md:w-[40%] flex flex-col justify-center pointer-events-none">
