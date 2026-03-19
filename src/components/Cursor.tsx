@@ -9,7 +9,7 @@ export default function Cursor() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
         if (isTouchDevice) return;
 
         setIsVisible(true);
