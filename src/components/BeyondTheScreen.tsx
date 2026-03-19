@@ -44,43 +44,50 @@ export default function BeyondTheScreen() {
     const viewfinderRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        // Text entrance animations
-        gsap.from(".beyond-content-item", {
-            scrollTrigger: {
-                trigger: textRef.current,
-                start: "top 80%",
-            },
-            y: 40,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 1,
-            ease: "power3.out"
-        });
-
-        // Viewfinder / Lens Blur interaction
-        gsap.fromTo(imageRef.current, 
-            { filter: "blur(20px)", scale: 1.2 },
+        // Text focus animation (Subject)
+        gsap.fromTo(".beyond-content-item", 
+            { filter: "blur(15px)", opacity: 0.3, y: 20 },
             {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: "top 60%",
-                    end: "bottom 40%",
+                    end: "top 10%",
                     scrub: 1,
                 },
                 filter: "blur(0px)",
-                scale: 1,
-                ease: "none"
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.05,
+                ease: "power2.out"
             }
         );
 
-        // Viewfinder overlay animation
-        gsap.fromTo(viewfinderRef.current,
-            { opacity: 0, scale: 1.1 },
+        // Photographer (Foreground) movement
+        gsap.fromTo(imageRef.current,
+            { x: 100, opacity: 0, scale: 0.9 },
             {
                 scrollTrigger: {
                     trigger: sectionRef.current,
                     start: "top 70%",
                     end: "top 20%",
+                    scrub: 1.5,
+                },
+                x: 0,
+                opacity: 1,
+                scale: 1,
+                ease: "power3.out"
+            }
+        );
+
+        // Viewfinder overlay
+        gsap.fromTo(viewfinderRef.current,
+            { opacity: 0, scale: 1.2 },
+            {
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 50%",
+                    end: "top 10%",
                     scrub: 1,
                 },
                 opacity: 1,
@@ -97,10 +104,10 @@ export default function BeyondTheScreen() {
             ref={sectionRef} 
             className="relative min-h-screen bg-[#FDFDFD] py-32 px-6 md:px-24 overflow-hidden z-20"
         >
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center relative">
                 
-                {/* ── LEFT COLUMN: CONTENT ── */}
-                <div ref={textRef} className="flex flex-col gap-12">
+                {/* ──Subject: CONTENT (Left & Center) ── */}
+                <div ref={textRef} className="lg:col-span-7 flex flex-col gap-12 z-10">
                     <div className="beyond-content-item">
                         <span className="text-sm font-sans font-bold tracking-[0.2em] text-[#888] uppercase mb-4 block">
                             Beyond the Screen /
@@ -109,6 +116,7 @@ export default function BeyondTheScreen() {
                             Community & <br /> Leadership
                         </h2>
                     </div>
+
                     <p className="beyond-content-item text-xl md:text-2xl text-[#555] font-sans font-medium leading-relaxed max-w-xl italic">
                         &quot;Engineering is about people as much as it is about pixels. My work in the community defines my approach to teamwork and communication.&quot;
                     </p>
@@ -134,49 +142,43 @@ export default function BeyondTheScreen() {
                     </div>
                 </div>
 
-                {/* ── RIGHT COLUMN: PHOTO & INTERACTION ── */}
-                <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl group border-[12px] border-white">
-                    {/* Viewfinder Overlay */}
-                    <div 
-                        ref={viewfinderRef}
-                        className="absolute inset-0 z-20 pointer-events-none p-8"
-                    >
-                        {/* Brackets */}
-                        <div className="absolute top-8 left-8 w-12 h-12 border-t-2 border-l-2 border-white/60 rounded-tl-sm" />
-                        <div className="absolute top-8 right-8 w-12 h-12 border-t-2 border-r-2 border-white/60 rounded-tr-sm" />
-                        <div className="absolute bottom-8 left-8 w-12 h-12 border-b-2 border-l-2 border-white/60 rounded-bl-sm" />
-                        <div className="absolute bottom-8 right-8 w-12 h-12 border-b-2 border-r-2 border-white/60 rounded-br-sm" />
-                        
-                        {/* Center Crosshair */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-                            <div className="w-8 h-[1px] bg-white/40" />
-                            <div className="h-8 w-[1px] bg-white/40 absolute" />
+                {/* ── Photographer: FOREGROUND ── */}
+                <div className="lg:col-span-5 relative z-20 pointer-events-none">
+                    <div className="relative aspect-[3/4] w-full">
+                        {/* Viewfinder Overlay */}
+                        <div 
+                            ref={viewfinderRef}
+                            className="absolute inset-0 z-30 pointer-events-none p-12"
+                        >
+                            {/* Brackets */}
+                            <div className="absolute top-12 left-12 w-16 h-16 border-t-2 border-l-2 border-black/20 rounded-tl-sm" />
+                            <div className="absolute top-12 right-12 w-16 h-16 border-t-2 border-r-2 border-black/20 rounded-tr-sm" />
+                            <div className="absolute bottom-12 left-12 w-16 h-16 border-b-2 border-l-2 border-black/20 rounded-bl-sm" />
+                            <div className="absolute bottom-12 right-12 w-16 h-16 border-b-2 border-r-2 border-black/20 rounded-br-sm" />
+                            
+                            {/* Center Crosshair */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                                <div className="w-10 h-[1px] bg-black/10" />
+                                <div className="h-10 w-[1px] bg-black/10 absolute" />
+                            </div>
+
+                            {/* Indicators */}
+                            <div className="absolute top-14 left-1/2 -translate-x-1/2 text-[10px] text-black/30 font-sans font-bold tracking-[0.3em] uppercase">
+                                REC ● 4K
+                            </div>
                         </div>
 
-                        {/* Text indicators */}
-                        <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[10px] text-white/50 font-sans font-bold tracking-[0.3em] uppercase">
-                            AF-ON-AUTO
-                        </div>
-                        <div className="absolute bottom-10 right-12 text-[10px] text-white/50 font-sans font-bold uppercase flex gap-4">
-                            <span>RAW</span>
-                            <span>4K/60</span>
+                        {/* The Photographer Image (Transparent PNG) */}
+                        <div ref={imageRef as unknown as React.Ref<HTMLDivElement>} className="absolute inset-0">
+                            <NextImage 
+                                src="/images/randilfernando_photography.png"
+                                alt="Randil Fernando Photographer"
+                                fill
+                                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+                                priority
+                            />
                         </div>
                     </div>
-
-                    {/* The Image */}
-                    <div className="absolute inset-0">
-                        <NextImage 
-                            ref={imageRef as unknown as React.LegacyRef<HTMLImageElement>}
-                            src="/images/randilfernando_photography.png"
-                            alt="Randil Fernando Photography"
-                            fill
-                            className="object-cover origin-center"
-                            priority
-                        />
-                    </div>
-
-                    {/* Subtle vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none z-10" />
                 </div>
 
             </div>
