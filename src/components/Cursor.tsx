@@ -6,13 +6,17 @@ import gsap from "gsap";
 export default function Cursor() {
     const cursorRef = useRef<HTMLDivElement>(null);
     const [cursorText, setCursorText] = useState("");
-    const [isVisible, setIsVisible] = useState(false);
+    const [isTouch, setIsTouch] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
-        if (isTouchDevice) return;
+        const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
+        setIsTouch(touch);
+        setMounted(true);
+    }, []);
 
-        setIsVisible(true);
+    useEffect(() => {
+        if (!mounted || isTouch || !cursorRef.current) return;
 
         const cursor = cursorRef.current;
         if (!cursor) return;
@@ -54,7 +58,7 @@ export default function Cursor() {
         };
     }, []);
 
-    if (!isVisible) return null;
+    if (!mounted || isTouch) return null;
 
     return (
         <div

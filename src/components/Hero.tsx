@@ -34,29 +34,17 @@ export default function Hero() {
             delay: 2.8
         });
 
-        gsap.to(".hero-bottom-element", {
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-            },
-            opacity: 0,
-            y: -100,
-            ease: "none"
-        });
-
         gsap.to(containerRef.current, {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
                 end: "bottom top",
-                scrub: true,
+                scrub: 1.2,
             },
             opacity: 0,
-            filter: isMobile ? "none" : "blur(30px)",
-            y: -50,
-            ease: "none"
+            filter: isMobile ? "none" : "blur(20px)",
+            y: -100,
+            ease: "power2.inOut"
         });
 
     }, { scope: containerRef });
