@@ -22,7 +22,7 @@ export default function Preloader() {
 
         // The half white circle morphs and scales up to cover the black background
         tl.to(circleRef.current, {
-            scale: 15,
+            scale: 25,
             duration: 1.5,
             ease: "power4.inOut",
         })
@@ -44,7 +44,7 @@ export default function Preloader() {
             <div
                 ref={circleRef}
                 className="w-[20vw] h-[20vw] bg-background rounded-full translate-y-1/2"
-                style={{ transformOrigin: "center center" }}
+                style={{ transformOrigin: "center center", width: 'max(20vw, 20vh)', height: 'max(20vw, 20vh)' }}
             />
         </div>
     );

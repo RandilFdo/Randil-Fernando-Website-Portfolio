@@ -5,6 +5,9 @@ import Lenis from "lenis";
 
 export default function LenisProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) return;
+
         const lenis = new Lenis({
             lerp: 0.05,
             smoothWheel: true,

@@ -12,10 +12,12 @@ export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
+        const isMobile = window.innerWidth < 768;
+
         gsap.from(".hero-char", {
             y: 100,
             opacity: 0,
-            filter: "blur(20px)",
+            filter: isMobile ? "none" : "blur(20px)",
             duration: 1.5,
             stagger: 0.04,
             ease: "power4.out",
@@ -25,11 +27,23 @@ export default function Hero() {
         gsap.from(".hero-bottom-element", {
             y: 40,
             opacity: 0,
-            filter: "blur(10px)",
+            filter: isMobile ? "none" : "blur(10px)",
             duration: 1.2,
             stagger: 0.1,
             ease: "power3.out",
             delay: 2.8
+        });
+
+        gsap.to(".hero-bottom-element", {
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+            },
+            opacity: 0,
+            y: -100,
+            ease: "none"
         });
 
         gsap.to(containerRef.current, {
@@ -40,7 +54,7 @@ export default function Hero() {
                 scrub: true,
             },
             opacity: 0,
-            filter: "blur(30px)",
+            filter: isMobile ? "none" : "blur(30px)",
             y: -50,
             ease: "none"
         });

@@ -8,6 +8,10 @@ export default function Cursor() {
     const [cursorText, setCursorText] = useState("");
 
     useEffect(() => {
+        // Detect touch device
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) return;
+
         const cursor = cursorRef.current;
         if (!cursor) return;
 

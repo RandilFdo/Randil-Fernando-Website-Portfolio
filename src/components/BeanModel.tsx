@@ -43,13 +43,15 @@ function Model() {
 }
 
 export default function BeanModel() {
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
     return (
         <div className="w-full h-full absolute inset-0 cursor-grab active:cursor-grabbing">
             <Canvas
                 camera={{ position: [0, 0, 50], fov: 45 }}
-                gl={{ antialias: true, alpha: true }}
-                shadows
-                dpr={[1, 2]}
+                gl={{ antialias: !isMobile, alpha: true }}
+                shadows={!isMobile}
+                dpr={isMobile ? 1 : [1, 2]}
             >
                 <Suspense fallback={null}>
                     <ambientLight intensity={0.5} />
@@ -61,14 +63,16 @@ export default function BeanModel() {
 
                     <Model />
 
-                    <ContactShadows
-                        position={[0, -3, 0]}
-                        opacity={0.3}
-                        scale={10}
-                        blur={2.5}
-                        far={5}
-                        color="#000000"
-                    />
+                    {!isMobile && (
+                        <ContactShadows
+                            position={[0, -3, 0]}
+                            opacity={0.3}
+                            scale={10}
+                            blur={2.5}
+                            far={5}
+                            color="#000000"
+                        />
+                    )}
 
                     <OrbitControls
                         enableZoom={false}

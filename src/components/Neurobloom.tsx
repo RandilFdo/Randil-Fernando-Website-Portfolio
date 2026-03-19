@@ -26,6 +26,8 @@ export default function Neurobloom() {
             ease: "power4.out",
         });
 
+        const isMobile = window.innerWidth < 768;
+
         gsap.to(containerRef.current, {
             scrollTrigger: {
                 trigger: containerRef.current,
@@ -33,7 +35,7 @@ export default function Neurobloom() {
                 end: "bottom top",
                 scrub: true,
             },
-            filter: "blur(20px)",
+            filter: isMobile ? "none" : "blur(20px)",
             opacity: 0,
         });
     }, { scope: containerRef });
@@ -67,8 +69,8 @@ export default function Neurobloom() {
                         </div>
                     </div>
 
-                    <div className="neuro-element md:col-span-4 flex flex-col gap-6 min-h-[400px]">
-                        <div className="flex-1 bg-[#0a0a0a] border border-[#222] rounded-3xl overflow-hidden relative group min-h-[250px]">
+                    <div className="neuro-element md:col-span-4 flex flex-col gap-6 min-h-[300px] md:min-h-[400px]">
+                        <div className="flex-1 bg-[#0a0a0a] border border-[#222] rounded-3xl overflow-hidden relative group min-h-[300px] md:min-h-[250px]">
                             {/* Interactive 3D Model */}
                             <BeanModel />
                             {/* Label overlay at bottom */}

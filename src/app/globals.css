@@ -16,6 +16,12 @@ body {
   cursor: none;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  body, a, button, [role="button"], .hover-target {
+    cursor: auto !important;
+  }
+}
+
 a,
 button,
 [role="button"] {

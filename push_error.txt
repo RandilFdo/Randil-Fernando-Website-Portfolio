@@ -1,0 +1,19 @@
+﻿git : Everything 
+up-to-date
+At line:1 char:1
++ git push origin 
+main --force 2>&1 | 
+Out-File -FilePath 
+"C:\Users\LENO ...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Everything   
+  up-to-date:Strin    
+g) [], RemoteExce    
+ption
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
