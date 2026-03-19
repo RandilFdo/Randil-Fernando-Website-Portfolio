@@ -44,24 +44,25 @@ export default function BeyondTheScreen() {
     const viewfinderRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        // Text focus animation (Subject)
-        gsap.fromTo(".beyond-content-item", 
-            { filter: "blur(15px)", opacity: 0.3, y: 20 },
-            {
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top 60%",
-                    end: "top 10%",
-                    scrub: 1,
-                },
-                filter: "blur(0px)",
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                stagger: 0.05,
-                ease: "power2.out"
+        // Text focus animation (Subject: Blur-In -> Clear -> Blur-Out)
+        const contentTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
             }
-        );
+        });
+
+        contentTl
+            .fromTo(".beyond-content-item", 
+                { filter: "blur(20px)", opacity: 0.1 },
+                { filter: "blur(0px)", opacity: 1, duration: 2 }
+            )
+            .to(".beyond-content-item", 
+                { filter: "blur(20px)", opacity: 0.1, duration: 2 }, 
+                "+=2"
+            );
 
         // Photographer (Foreground) movement
         gsap.fromTo(imageRef.current,
@@ -169,12 +170,13 @@ export default function BeyondTheScreen() {
                         </div>
 
                         {/* The Photographer Image (Transparent PNG) */}
-                        <div ref={imageRef as unknown as React.Ref<HTMLDivElement>} className="absolute inset-0">
+                        <div ref={imageRef as unknown as React.Ref<HTMLDivElement>} className="absolute inset-x-0 bottom-0 top-0">
                             <NextImage 
                                 src="/images/randilfernando_photography.png"
                                 alt="Randil Fernando Photographer"
                                 fill
-                                className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
+                                style={{ objectFit: 'contain', objectPosition: 'bottom' }}
+                                className="drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
                                 priority
                             />
                         </div>

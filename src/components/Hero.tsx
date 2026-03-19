@@ -67,12 +67,13 @@ export default function Hero() {
                 </h1>
 
                 {/* Portrait centered below */}
-                <div className="hero-bottom-element w-[80vw] max-w-[320px] -mt-6 relative z-10 aspect-square">
+                <div className="hero-bottom-element w-[80vw] max-w-[320px] -mt-6 relative z-10">
                     <NextImage
                         src="/images/randilfernando_pfp.png"
                         alt="Randil Fernando Portfolio"
-                        fill
-                        className="object-contain drop-shadow-2xl"
+                        width={320}
+                        height={320}
+                        className="w-full h-auto object-contain drop-shadow-2xl"
                         priority
                     />
                 </div>
@@ -106,14 +107,17 @@ export default function Hero() {
                 </h1>
 
                 {/* Overlapping Image Layer — clipped at section bottom */}
-                <div className="hero-bottom-element w-[55vw] max-w-[650px] -mt-[10vw] pointer-events-none flex justify-center relative z-20 aspect-[4/3]">
+                <div className="hero-bottom-element w-[55vw] max-w-[650px] -mt-[10vw] flex justify-center relative z-20">
                     <NextImage
                         src="/images/randilfernando_pfp.png"
                         alt="Randil Fernando Portfolio"
-                        fill
-                        className="object-contain"
+                        width={650}
+                        height={650}
+                        className="w-full h-auto object-contain"
                         priority
                     />
+                    {/* Subtle bottom fade */}
+                    <div className="absolute bottom-0 left-0 right-0 h-[12%] bg-gradient-to-t from-[#EAE8E3] to-transparent pointer-events-none" />
                 </div>
 
                 {/* Content floating bottom-left — positioned to avoid image overlap */}

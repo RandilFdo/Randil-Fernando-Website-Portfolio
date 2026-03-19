@@ -80,12 +80,14 @@ export default function HorizontalScroll() {
                             <div className="w-full md:w-[60%] h-[40vh] md:h-full relative overflow-hidden rounded-2xl bg-[#DCD9D4] mt-16 md:mt-0 shadow-xl pointer-events-none">
                                 <div className="absolute inset-0 bg-[#EAE8E3]"></div>
 
-                                <NextImage
-                                    src={`/images/${project.img}`}
-                                    alt={`Randil Fernando - ${project.title} Portfolio`}
-                                    fill
-                                    className="object-cover pointer-events-none"
-                                />
+                                <div className="absolute top-0 left-[-15%] w-[130%] h-full">
+                                    <NextImage
+                                        src={`/images/${project.img}`}
+                                        alt={`Randil Fernando - ${project.title} Portfolio`}
+                                        fill
+                                        className="object-cover pointer-events-none"
+                                    />
+                                </div>
                             </div>
 
                             <div className="w-full md:w-[40%] flex flex-col justify-center pointer-events-none">
