@@ -19,12 +19,13 @@ export default function Cursor() {
         if (!mounted || isTouch || !cursorRef.current) return;
 
         const cursor = cursorRef.current;
-        if (!cursor) return;
+        const xSet = gsap.quickSetter(cursor, "x", "px");
+        const ySet = gsap.quickSetter(cursor, "y", "px");
 
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = -100;
-        let cursorY = -100;
+        let mouseX = typeof window !== 'undefined' ? window.innerWidth / 2 : 0;
+        let mouseY = typeof window !== 'undefined' ? window.innerHeight / 2 : 0;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
 
         const onHover = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
@@ -46,17 +47,21 @@ export default function Cursor() {
             onHover(e);
         };
 
-        gsap.ticker.add(() => {
-            cursorX += (mouseX - cursorX) * 0.2;
-            cursorY += (mouseY - cursorY) * 0.2;
-            gsap.set(cursor, { x: cursorX, y: cursorY });
-        });
+        const tick = () => {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            xSet(cursorX);
+            ySet(cursorY);
+        };
 
+        gsap.ticker.add(tick);
         window.addEventListener("mousemove", onMouseMove);
+
         return () => {
+            gsap.ticker.remove(tick);
             window.removeEventListener("mousemove", onMouseMove);
         };
-    }, []);
+    }, [mounted, isTouch]);
 
     if (!mounted || isTouch) return null;
 
