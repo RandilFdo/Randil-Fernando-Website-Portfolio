@@ -10,9 +10,18 @@ export default function Cursor() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches;
+        // Only hide on small touch devices (mobile/tablet)
+        const touch = window.innerWidth < 1024 && ('ontouchstart' in window || navigator.maxTouchPoints > 0 || window.matchMedia('(pointer: coarse)').matches);
         setIsTouch(touch);
         setMounted(true);
+
+        if (!touch) {
+            document.body.classList.add("custom-cursor-active");
+        }
+
+        return () => {
+            document.body.classList.remove("custom-cursor-active");
+        };
     }, []);
 
     useEffect(() => {
