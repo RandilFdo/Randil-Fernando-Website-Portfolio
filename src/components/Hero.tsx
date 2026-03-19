@@ -72,10 +72,12 @@ export default function Hero() {
                         src="/images/randilfernando_pfp.png"
                         alt="Randil Fernando Portfolio"
                         width={320}
-                        height={320}
+                        height={400}
                         className="w-full h-auto object-contain drop-shadow-2xl"
                         priority
                     />
+                    {/* Subtle bottom fade for mobile */}
+                    <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-[#EAE8E3] via-[#EAE8E3]/80 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Description below image */}
@@ -112,12 +114,12 @@ export default function Hero() {
                         src="/images/randilfernando_pfp.png"
                         alt="Randil Fernando Portfolio"
                         width={650}
-                        height={650}
+                        height={800}
                         className="w-full h-auto object-contain"
                         priority
                     />
                     {/* Subtle bottom fade */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[12%] bg-gradient-to-t from-[#EAE8E3] to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-[#EAE8E3] via-[#EAE8E3]/80 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Content floating bottom-left — positioned to avoid image overlap */}
