@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ Randil Fernando | Creative Portfolio 2026
 
-## Getting Started
+### "Jack of all trades, master of none, though oftentimes better than a master of one."
 
-First, run the development server:
+This repository contains the source code for my high-performance, motion-heavy digital experience. It is designed to showcase the intersection of **Full-Stack Engineering**, **Robotics**, and **Cloud-Native DevOps**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Live Demo:** [randilfdo.com](http://randilfdo.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 The Vision
+Inspired by minimalist brutalism, this portfolio demonstrates **System Orchestration**. [cite_start]From buttery-smooth GSAP animations to a backend that reflects real-world infrastructure builds, every pixel is engineered for performance[cite: 31, 33].
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Tech Stack & Architecture
+* [cite_start]**Framework:** Next.js 14 (App Router) [cite: 18, 30]
+* [cite_start]**Styling:** Tailwind CSS (Custom Design System) [cite: 30]
+* **Animations:** GSAP (GreenSock) & Framer Motion for scroll-bound interactions.
+* **Performance:** Lenis Scroll for smooth inertial scrolling.
+* [cite_start]**Deployment:** Vercel with automated CI/CD[cite: 18, 33].
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Featured Projects
+* [cite_start]**Neurobloom (BEAN Robot):** Architecting optimized C++ firmware for ESP32 and a RAG-driven cloud backend for therapeutic robotics[cite: 11, 33].
+* [cite_start]**Electric Vehicle (EV):** Engineered a functional EV from scratch, managing power distribution and motor control[cite: 33].
+* [cite_start]**Cloud-Native Pipeline:** Automated Jenkins CI/CD with Prometheus & Grafana observability[cite: 33].
+* [cite_start]**4Rent.lk:** Go (Golang) microservices integrated with **WSO2 Asgardeo** for enterprise-grade OAuth 2.0 authentication[cite: 16, 18].
+* [cite_start]**Motion Relief:** Real-time Kotlin app for reducing motion sickness via dynamic visual overlays[cite: 33].
+* [cite_start]**SQRL Budget Tracker:** Open-source expense analytics tool built with Kotlin[cite: 33].
+* [cite_start]**Pixel Scholar & DevNeko:** Delivering high-performance mobile and web application development[cite: 33].
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧠 The "Jack of All Trades" Philosophy
+I am a multidisciplinary builder. [cite_start]My background as an **Island 1st Swimmer (100m Butterfly)**, **Public Speaker**, and **Musical Genius** informs my engineering[cite: 33]. I believe that understanding the entire stack—from a robot's hardware signal to a cloud-based API—is the only way to build truly resilient systems.
 
-## Deploy on Vercel
+## 📈 System Stats & Skills
+* [cite_start]**Languages:** Python, JavaScript, Java, C#, C++, Kotlin, Go, SQL[cite: 33].
+* [cite_start]**Tools:** Docker, Jenkins, Prometheus, ROS, Git, GCP, Ubuntu[cite: 30, 33].
+* [cite_start]**Honors:** 1st Runners-up AdaptIQ (IIT), 2nd Runners-up Vertex (IIT)[cite: 33].
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact & Visibility
+* [cite_start]**LinkedIn:** [in/Randil-Fernando](https://www.linkedin.com/in/randil-fernando-in/) [cite: 3]
+* [cite_start]**GitHub:** [RandilFdo](https://github.com/RandilFdo) [cite: 2]
+* [cite_start]**Email:** [randilfernando829@gmail.com](mailto:randilfernando829@gmail.com) [cite: 5]
+
+---
+© 2026 Randil Fernando. Built with precision and 150ms transitions.
