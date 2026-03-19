@@ -5,6 +5,7 @@
 This repository contains the source code for my high-performance, motion-heavy digital experience. It is designed to showcase the intersection of **Full-Stack Engineering**, **Robotics**, and **Cloud-Native DevOps**.
 
 **Live Demo:** [randilfdo.com](http://randilfdo.com)
+<img width="2559" height="1392" alt="Screenshot 2026-03-19 202206" src="https://github.com/user-attachments/assets/9b0afcf1-a774-4d65-ba86-ab2645ab8708" />
 
 ---
 
