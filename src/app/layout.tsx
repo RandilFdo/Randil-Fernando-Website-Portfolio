@@ -18,15 +18,11 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Randil Fernando",
-    url: "https://randilfernando.com",
-    jobTitle: "Full-Stack Developer & DevOps Engineer",
-    worksFor: {
-        "@type": "Organization",
-        name: "WSO2"
-    },
+    url: "https://randilfdo.com",
+    jobTitle: "Full-Stack Engineer & Robotics Lead",
     sameAs: [
-        "https://github.com/randilfernando",
-        "https://linkedin.com/in/randilfernando"
+        "https://linkedin.com/in/randil-fernando-in/",
+        "https://github.com/RandilFdo"
     ]
 };
 
