@@ -81,9 +81,9 @@ export default function Navbar() {
     return (
         <>
             {/* Standard Navbar */}
-            <nav className={`fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40 transition-transform duration-500 mix-blend-difference text-white ${scrolled ? "-translate-y-full" : "translate-y-0"}`}>
-                <div className="font-sans text-sm font-medium uppercase tracking-widest whitespace-nowrap hidden lg:block">Master of None</div>
-                <div className="flex gap-4 md:gap-6 font-sans text-sm font-medium">
+            <nav className={`fixed top-0 left-0 w-full p-6 md:p-8 flex justify-between items-center z-40 transition-transform duration-500 mix-blend-difference text-white ${scrolled ? "-translate-y-full" : "translate-y-0"}`}>
+                <div className="font-sans text-xs md:text-sm font-medium uppercase tracking-widest whitespace-nowrap">Master of None</div>
+                <div className="hidden lg:flex gap-4 md:gap-6 font-sans text-sm font-medium pr-16 md:pr-0">
                     <a href="/#about" onClick={(e) => handleSmoothScroll(e, "#about")} className="hover-target">About</a>
                     <a href="/#works" onClick={(e) => handleSmoothScroll(e, "#works")} className="hover-target">Works</a>
                     <a href="/canvas" className="hover-target pointer-events-auto">Canvas</a>

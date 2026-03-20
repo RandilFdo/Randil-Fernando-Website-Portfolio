@@ -67,17 +67,18 @@ export default function Hero() {
                 </h1>
 
                 {/* Portrait centered below */}
-                <div className="hero-bottom-element w-[80vw] max-w-[320px] -mt-6 relative z-10">
+                <div 
+                    className="hero-bottom-element w-[80vw] max-w-[320px] -mt-6 relative z-10"
+                    style={{ WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)", maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)" }}
+                >
                     <NextImage
                         src="/images/randilfernando_pfp.png"
                         alt="Randil Fernando Portfolio"
                         width={320}
                         height={400}
-                        className="w-full h-auto object-contain drop-shadow-2xl"
+                        className="w-full h-auto object-contain"
                         priority
                     />
-                    {/* Subtle bottom fade for mobile */}
-                    <div className="absolute bottom-0 left-0 right-0 h-[8%] bg-gradient-to-t from-[#EAE8E3] to-transparent pointer-events-none" />
                 </div>
 
                 {/* Description below image */}
