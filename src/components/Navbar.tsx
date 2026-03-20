@@ -82,10 +82,11 @@ export default function Navbar() {
         <>
             {/* Standard Navbar */}
             <nav className={`fixed top-0 left-0 w-full p-8 flex justify-between items-center z-40 transition-transform duration-500 mix-blend-difference text-white ${scrolled ? "-translate-y-full" : "translate-y-0"}`}>
-                <div className="font-sans text-sm font-medium uppercase tracking-widest">Master of None</div>
-                <div className="flex gap-6 font-sans text-sm font-medium">
+                <div className="font-sans text-sm font-medium uppercase tracking-widest whitespace-nowrap hidden lg:block">Master of None</div>
+                <div className="flex gap-4 md:gap-6 font-sans text-sm font-medium">
                     <a href="/#about" onClick={(e) => handleSmoothScroll(e, "#about")} className="hover-target">About</a>
                     <a href="/#works" onClick={(e) => handleSmoothScroll(e, "#works")} className="hover-target">Works</a>
+                    <a href="/canvas" className="hover-target pointer-events-auto">Canvas</a>
                     <a href="/#contact" onClick={(e) => handleSmoothScroll(e, "#contact")} className="hover-target">Contact</a>
                     <a href="/cv" className="hover-target pointer-events-auto">CV</a>
                 </div>
@@ -106,10 +107,11 @@ export default function Navbar() {
                 className="fixed inset-0 bg-[#111111] text-[#EAE8E3] z-50 flex flex-col justify-center px-12 md:px-32"
                 style={{ clipPath: "circle(0% at calc(100% - 3rem) 3rem)" }}
             >
-                <div className="flex flex-col text-6xl md:text-8xl font-heading font-black tracking-tighter uppercase leading-none gap-2">
+                <div className="flex flex-col text-5xl md:text-8xl font-heading font-black tracking-tighter uppercase leading-none gap-2">
                     <a href="/" onClick={(e) => handleMobileSmoothScroll(e, "top")} className="menu-link hover:text-white transition-colors w-fit hover-target">Home</a>
                     <a href="/#about" onClick={(e) => handleMobileSmoothScroll(e, "#about")} className="menu-link hover:text-white transition-colors w-fit hover-target">About</a>
                     <a href="/#works" onClick={(e) => handleMobileSmoothScroll(e, "#works")} className="menu-link hover:text-white transition-colors w-fit hover-target">Works</a>
+                    <a href="/canvas" onClick={toggleMenu} className="menu-link hover:text-white transition-colors w-fit hover-target pointer-events-auto">Canvas</a>
                     <a href="/#contact" onClick={(e) => handleMobileSmoothScroll(e, "#contact")} className="menu-link hover:text-white transition-colors w-fit hover-target">Contact</a>
                     <a href="/cv" onClick={toggleMenu} className="menu-link hover:text-white transition-colors w-fit hover-target pointer-events-auto">CV</a>
                 </div>

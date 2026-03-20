@@ -4,7 +4,7 @@ import HorizontalScroll from "@/components/HorizontalScroll";
 import Neurobloom from "@/components/Neurobloom";
 import Services from "@/components/Services";
 import BentoGrid from "@/components/BentoGrid";
-import DevOpsTerminal from "@/components/DevOpsTerminal";
+import GalleryPreview from "@/components/GalleryPreview";
 import BeyondTheScreen from "@/components/BeyondTheScreen";
 import Footer from "@/components/Footer";
 
@@ -16,8 +16,10 @@ export default function Home() {
             <HorizontalScroll /> {/* Light */}
             <Neurobloom /> {/* Dark */}
             <Services />   {/* Light */}
-            <DevOpsTerminal /> {/* Dark */}
             <BentoGrid />  {/* Light */}
+            
+            <GalleryPreview /> {/* Dark/Arts */}
+            
             <BeyondTheScreen /> {/* Light */}
             <Footer />     {/* Dark */}
         </main>

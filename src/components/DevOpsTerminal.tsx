@@ -31,7 +31,7 @@ export default function DevOpsTerminal() {
     useGSAP(() => {
         ScrollTrigger.create({
             trigger: containerRef.current,
-            start: "top 70%",
+            start: "top 80%",
             onEnter: () => {
                 if (!hasTriggered.current) {
                     hasTriggered.current = true;
@@ -51,41 +51,33 @@ export default function DevOpsTerminal() {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="py-24 px-4 md:px-12 bg-background flex flex-col items-center justify-center min-h-[80vh]">
-            <div className="max-w-4xl w-full">
-                <h2 className="text-4xl md:text-6xl font-heading font-black mb-12 uppercase tracking-tighter text-foreground">
-                    CI/CD Pipeline /
-                </h2>
-
-                <div className="w-full bg-white border border-[#DDD] rounded-lg overflow-hidden shadow-xl hover-target">
-                    {/* Terminal Header */}
-                    <div className="bg-[#F5F5F5] px-4 py-3 flex items-center gap-2 border-b border-[#DDD]">
-                        <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                        <div className="text-xs text-[#888] font-mono ml-4">jenkins@production:~</div>
-                    </div>
-
-                    {/* Terminal Body */}
-                    <div className="p-6 font-mono text-sm md:text-base h-[400px] overflow-y-auto bg-white text-[#333]">
-                        {logs.map((log, index) => (
-                            <div
-                                key={index}
-                                className={`mb-2 ${index === pipelineLogs.length - 1 ? "text-green-600 font-bold" : "text-[#555]"}`}
-                            >
-                                <span className="text-[#999] mr-2">$</span>
-                                {log}
-                            </div>
-                        ))}
-                        {logs.length < pipelineLogs.length && hasTriggered.current && (
-                            <div className="animate-pulse w-2 h-5 bg-black mt-1 inline-block align-middle"></div>
-                        )}
-                        {!hasTriggered.current && (
-                            <div className="text-[#888]">Awaiting pipeline trigger...</div>
-                        )}
-                    </div>
-                </div>
+        <div ref={containerRef} className="w-full bg-white border border-[#DDD] rounded-xl overflow-hidden shadow-2xl hover-target pointer-events-auto transition-transform duration-700 hover:scale-[1.02]">
+            {/* Terminal Header */}
+            <div className="bg-[#F5F5F5] px-4 py-3 flex items-center gap-2 border-b border-[#DDD]">
+                <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div className="w-3 h-3 rounded-full bg-green-400"></div>
+                <div className="text-xs text-[#888] font-mono ml-4">jenkins@production:~</div>
             </div>
-        </section>
+
+            {/* Terminal Body */}
+            <div className="p-6 font-mono text-sm md:text-base h-[350px] overflow-y-auto bg-white text-[#333] text-left">
+                {logs.map((log, index) => (
+                    <div
+                        key={index}
+                        className={`mb-2 ${index === pipelineLogs.length - 1 ? "text-green-600 font-bold" : "text-[#555]"}`}
+                    >
+                        <span className="text-[#999] mr-2">$</span>
+                        {log}
+                    </div>
+                ))}
+                {logs.length < pipelineLogs.length && hasTriggered.current && (
+                    <div className="animate-pulse w-2 h-5 bg-black mt-1 inline-block align-middle"></div>
+                )}
+                {!hasTriggered.current && (
+                    <div className="text-[#888]">Awaiting pipeline trigger...</div>
+                )}
+            </div>
+        </div>
     );
 }
