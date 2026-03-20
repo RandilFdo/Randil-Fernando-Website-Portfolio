@@ -48,7 +48,7 @@ export default function CanvasPage() {
                     <GalleryGrid images={designFiles} />
                 ) : (
                     <div className="w-full py-32 flex flex-col items-center justify-center border-t border-b border-[#333] text-[#888]">
-                        <p className="font-sans text-xl">No designs found. Drop files starting with 'design' into the /public/images folder!</p>
+                        <p className="font-sans text-xl">No designs found. Drop files starting with &apos;design&apos; into the /public/images folder!</p>
                     </div>
                 )}
             </div>
