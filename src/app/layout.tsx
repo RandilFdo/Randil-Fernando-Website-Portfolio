@@ -12,6 +12,10 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", 
 export const metadata: Metadata = {
     title: "Randil Fernando | Full-Stack Developer",
     description: "Official portfolio of Randil Fernando, a Full-Stack Developer & DevOps Engineer. Explore my projects, tech stack, and robotics experience.",
+    icons: {
+        icon: "/icon.png",
+        apple: "/icon.png",
+    }
 };
 
 const jsonLd = {
